@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/battle/index",
+    "pages/rules/index",
+    "pages/cards/index",
+    "pages/settings/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#7b2d26",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "军旗",
+    "backgroundColor": "#efe6d5",
+    "backgroundTextStyle": "dark"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

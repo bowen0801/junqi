@@ -1,0 +1,25 @@
+<view class="home">
+  <view class="title-wrap">
+    <view class="title">军 旗</view>
+    <view class="subtitle">最新军事智力游戏 · 5×5 交点翻棋</view>
+  </view>
+
+  <view class="menu">
+    <button class="btn btn-primary" bindtap="onStartAI">开始游戏（人机）</button>
+    <button class="btn btn-plain" disabled>面对面同屏（敬请期待）</button>
+    <button class="btn btn-plain" disabled>好友对战（二期）</button>
+    <navigator url="/pages/rules/index" class="btn btn-plain nav-btn">游戏规则</navigator>
+    <navigator url="/pages/cards/index" class="btn btn-plain nav-btn">牌面图鉴</navigator>
+    <navigator url="/pages/settings/index" class="btn btn-plain nav-btn">设置</navigator>
+  </view>
+
+  <view class="stats panel" wx:if="{{stats.games > 0}}">
+    <view class="stats-title">战绩</view>
+    <view class="stats-row">
+      <text>对局 {{stats.games}}</text>
+      <text>胜 {{stats.wins}}</text>
+      <text>和 {{stats.draws}}</text>
+      <text>连胜 {{stats.streak}}</text>
+    </view>
+  </view>
+</view>

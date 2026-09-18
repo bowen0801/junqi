@@ -1,0 +1,38 @@
+<view class="rules">
+  <view class="section">
+    <view class="sec-title">基本玩法</view>
+    <view class="p">整套 25 张牌（红方 12、蓝方 12、军旗 1）洗匀后，背面朝上随机摆在横竖各 5 条线构成的 25 个交点上。</view>
+    <view class="p">第一张翻出的红/蓝牌，其颜色归翻牌的人（翻出军旗不计数、换人翻）。</view>
+    <view class="p">之后每回合二选一：</view>
+    <view class="li">① <text class="hl">翻牌</text>：翻开任意一张背面牌（可能是自己的、对方的或军旗）</view>
+    <view class="li">② <text class="hl">移动</text>：将己方已翻开的牌沿棋盘线走到相邻交点（上下左右一格，不能斜走、不能连走）</view>
+  </view>
+
+  <view class="section">
+    <view class="sec-title">级别与克制</view>
+    <view class="rank-line">司令 ＞ 军长 ＞ 师长 ＞ 旅长 ＞ 团长 ＞ 营长 ＞ 连长 ＞ 排长 ＞ 班长 ＞ 工兵</view>
+    <view class="table">
+      <view class="tr"><text class="td hl">大吃小</text><text class="td">级别高的吃级别低的，胜者占据交点</text></view>
+      <view class="tr"><text class="td hl">同级</text><text class="td">同归于尽，交点清空</text></view>
+      <view class="tr"><text class="td hl">炸弹</text><text class="td">与任何牌相遇同归于尽</text></view>
+      <view class="tr"><text class="td hl">工兵</text><text class="td">挖掉地雷（工兵胜并占点）</text></view>
+      <view class="tr"><text class="td hl">地雷</text><text class="td">军官撞雷同归于尽（不可移动）</text></view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="sec-title">胜负</view>
+    <view class="li">· 把<text class="hl">对方 12 张牌全部消灭</text>（含其地雷）后，走到<text class="hl">翻开的军旗</text>交点上即夺旗获胜</view>
+    <view class="li">· 对方全灭但军旗未翻开时，须继续翻牌找到军旗</view>
+    <view class="li">· 军旗、地雷翻开后原地不动、不可移动</view>
+    <view class="li">· 无暗牌可翻且无棋可走判负；双方全灭判平</view>
+    <view class="li">· 连续 40 步无战斗或总步数达 150 判和</view>
+  </view>
+
+  <view class="section">
+    <view class="sec-title">小技巧</view>
+    <view class="li">· 工兵是挖雷关键，留到收官阶段用</view>
+    <view class="li">· 炸弹最好留给对方的司令、军长</view>
+    <view class="li">· 翻牌也是博弈：翻出的牌可能直接归对方使用</view>
+  </view>
+</view>

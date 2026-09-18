@@ -1,0 +1,36 @@
+.cards-page {
+  padding: 24rpx 24rpx 48rpx;
+}
+
+.group-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #7b2d26;
+  margin: 16rpx 8rpx;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cell {
+  width: 25%;
+  box-sizing: border-box;
+  padding: 8rpx;
+  text-align: center;
+}
+
+.img {
+  width: 100%;
+  height: 240rpx;
+  border-radius: 10rpx;
+  border: 2rpx solid #c9b88c;
+  background: #fffdf5;
+}
+
+.label {
+  font-size: 24rpx;
+  color: #5a4a35;
+  margin-top: 6rpx;
+}

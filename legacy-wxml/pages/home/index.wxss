@@ -1,0 +1,51 @@
+.home {
+  padding: 48rpx 32rpx;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.title-wrap {
+  text-align: center;
+  margin: 60rpx 0 40rpx;
+}
+
+.title {
+  font-size: 88rpx;
+  font-weight: bold;
+  color: #7b2d26;
+  letter-spacing: 24rpx;
+  text-shadow: 0 2rpx 0 #d8c9a8;
+}
+
+.subtitle {
+  margin-top: 16rpx;
+  font-size: 26rpx;
+  color: #8a7a63;
+  letter-spacing: 2rpx;
+}
+
+.menu {
+  margin-top: 40rpx;
+}
+
+.nav-btn {
+  line-height: 2.6;
+}
+
+.stats {
+  margin-top: auto;
+}
+
+.stats-title {
+  font-weight: bold;
+  margin-bottom: 12rpx;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  color: #6b5a44;
+  font-size: 26rpx;
+}

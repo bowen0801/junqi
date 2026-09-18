@@ -1,0 +1,40 @@
+<view class="settings">
+  <view class="group">
+    <view class="group-title">对局</view>
+    <view class="row">
+      <text class="row-label">AI 难度</text>
+      <picker range="{{difficultyOptions}}" range-key="label" value="{{difficultyIndex}}" bindchange="onDifficultyChange">
+        <view class="picker-value">{{difficultyOptions[difficultyIndex].label}} ▾</view>
+      </picker>
+    </view>
+    <view class="row">
+      <text class="row-label">地雷保留（军官撞雷仅进攻方阵亡）</text>
+      <switch checked="{{mineSurvives}}" bindchange="onMineSurvivesChange" color="#7b2d26" />
+    </view>
+  </view>
+
+  <view class="group">
+    <view class="group-title">体验</view>
+    <view class="row">
+      <text class="row-label">音效</text>
+      <switch checked="{{sound}}" bindchange="onSoundChange" color="#7b2d26" />
+    </view>
+    <view class="row">
+      <text class="row-label">动画</text>
+      <switch checked="{{animation}}" bindchange="onAnimationChange" color="#7b2d26" />
+    </view>
+  </view>
+
+  <view class="group">
+    <view class="group-title">战绩</view>
+    <view class="stats-row">
+      <text>对局 {{stats.games}}</text>
+      <text>胜 {{stats.wins}}</text>
+      <text>和 {{stats.draws}}</text>
+      <text>连胜 {{stats.streak}}</text>
+    </view>
+    <button class="btn btn-plain reset-btn" bindtap="onResetStats">清空战绩</button>
+  </view>
+
+  <view class="version">军旗 v1.0.0</view>
+</view>

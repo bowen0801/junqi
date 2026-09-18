@@ -1,0 +1,66 @@
+.rules {
+  padding: 24rpx 32rpx 48rpx;
+}
+
+.section {
+  background: #f7f0e3;
+  border: 2rpx solid #d8c9a8;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.sec-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #7b2d26;
+  margin-bottom: 16rpx;
+}
+
+.p {
+  font-size: 27rpx;
+  color: #5a4a35;
+  line-height: 1.7;
+  margin-bottom: 8rpx;
+}
+
+.li {
+  font-size: 27rpx;
+  color: #5a4a35;
+  line-height: 1.8;
+}
+
+.hl {
+  color: #a03a2f;
+  font-weight: bold;
+}
+
+.rank-line {
+  font-size: 26rpx;
+  color: #7b2d26;
+  font-weight: bold;
+  margin-bottom: 16rpx;
+  line-height: 1.8;
+}
+
+.table {
+  border-top: 2rpx solid #d8c9a8;
+}
+
+.tr {
+  display: flex;
+  padding: 12rpx 0;
+  border-bottom: 2rpx solid #e8dcc0;
+  align-items: baseline;
+}
+
+.td {
+  font-size: 26rpx;
+  color: #5a4a35;
+  line-height: 1.6;
+}
+
+.td:first-child {
+  width: 130rpx;
+  flex-shrink: 0;
+}

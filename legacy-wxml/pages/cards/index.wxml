@@ -1,0 +1,25 @@
+<view class="cards-page">
+  <view class="group-title">红方（12 张）</view>
+  <view class="grid">
+    <view class="cell" wx:for="{{redCards}}" wx:key="id" bindtap="onPreview" data-img="{{item.img}}" data-name="{{item.label}}">
+      <image class="img" src="{{item.img}}" mode="aspectFill" />
+      <view class="label">{{item.label}}</view>
+    </view>
+  </view>
+
+  <view class="group-title">蓝方（12 张）</view>
+  <view class="grid">
+    <view class="cell" wx:for="{{blueCards}}" wx:key="id" bindtap="onPreview" data-img="{{item.img}}" data-name="{{item.label}}">
+      <image class="img" src="{{item.img}}" mode="aspectFill" />
+      <view class="label">{{item.label}}</view>
+    </view>
+  </view>
+
+  <view class="group-title">中立（1 张）</view>
+  <view class="grid">
+    <view class="cell" bindtap="onPreview" data-img="{{flag.img}}" data-name="{{flag.label}}">
+      <image class="img" src="{{flag.img}}" mode="aspectFill" />
+      <view class="label">{{flag.label}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,218 @@
+.battle {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 16rpx 24rpx 32rpx;
+  box-sizing: border-box;
+}
+
+/* 顶栏 */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12rpx 16rpx;
+  background: #f7f0e3;
+  border-radius: 12rpx;
+  border: 2rpx solid #d8c9a8;
+  font-size: 26rpx;
+}
+.side-red .side-label { color: #a03a2f; font-weight: bold; }
+.side-blue .side-label { color: #185fa5; font-weight: bold; }
+.turn-info { color: #6b5a44; }
+.remain { display: flex; gap: 16rpx; }
+.remain-red { color: #a03a2f; }
+.remain-blue { color: #185fa5; }
+
+/* 棋盘 */
+.board-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 20rpx;
+}
+.board {
+  position: relative;
+  background: #e7d9bd;
+  border: 6rpx solid #b99c6b;
+  border-radius: 8rpx;
+  box-shadow: 0 4rpx 12rpx rgba(90, 70, 40, 0.25);
+}
+.board-lines { position: absolute; inset: 0; }
+.hline {
+  position: absolute;
+  left: 0; right: 0;
+  height: 2rpx;
+  background: #8a7147;
+}
+.vline {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 2rpx;
+  background: #8a7147;
+}
+
+/* 交点热区层（最上层，接管全部点击） */
+.nodes-layer { position: absolute; inset: 0; z-index: 10; }
+.node-hot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+}
+/* 高亮：整格底色闪烁（v1.4：替代牌边细环，更好认） */
+.node-hot.hl-move {
+  background: rgba(63, 158, 63, 0.38);
+  border: 3rpx solid #3f9e3f;
+  animation: hl-blink 0.9s ease-in-out infinite;
+}
+.node-hot.hl-attack {
+  background: rgba(216, 90, 48, 0.38);
+  border: 3rpx solid #d85a30;
+  animation: hl-blink 0.9s ease-in-out infinite;
+}
+.node-hot.hl-flag {
+  background: rgba(224, 165, 32, 0.42);
+  border: 3rpx solid #e0a520;
+  animation: hl-blink 0.9s ease-in-out infinite;
+}
+.node-hot.sel {
+  background: rgba(224, 165, 32, 0.22);
+  border: 3rpx dashed #e0a520;
+}
+@keyframes hl-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+/* 牌层（在热区层之下，仅负责显示） */
+.cards-layer { position: absolute; inset: 0; z-index: 1; }
+.card {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 8rpx;
+  z-index: 2;
+  transition: left 0.28s ease, top 0.28s ease;
+}
+.card.picked {
+  z-index: 5;
+  transform: translate(-50%, -56%);
+  filter: drop-shadow(0 6rpx 8rpx rgba(0, 0, 0, 0.35));
+}
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+  transform-style: preserve-3d;
+  transition: transform 0.45s;
+}
+.card.faceup .card-inner { transform: rotateY(180deg); }
+.card-back, .card-front {
+  position: absolute;
+  inset: 0;
+  border-radius: 8rpx;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+.card-back {
+  background: #7b2d26;
+  border: 3rpx solid #5c1f1a;
+  box-sizing: border-box;
+}
+.card-back::after {
+  content: "军";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  color: #e0a520;
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.card-front {
+  transform: rotateY(180deg);
+  background: #fffdf5;
+  border: 2rpx solid #c9b88c;
+  box-sizing: border-box;
+}
+.card-img { width: 100%; height: 100%; }
+
+/* 战报条 */
+.logbar {
+  margin-top: 20rpx;
+  padding: 14rpx 20rpx;
+  background: #f7f0e3;
+  border: 2rpx solid #d8c9a8;
+  border-radius: 12rpx;
+  min-height: 60rpx;
+  display: flex;
+  align-items: center;
+}
+.log-text { font-size: 26rpx; color: #5a4a35; }
+
+/* 操作按钮 */
+.actions {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 16rpx;
+}
+.mini-btn {
+  flex: 1;
+  font-size: 28rpx;
+  padding: 14rpx 0;
+  background: #f7f0e3;
+  color: #7b2d26;
+  border: 2rpx solid #b99c6b;
+  border-radius: 10rpx;
+  line-height: 1.6;
+}
+.mini-btn::after { border: none; }
+
+/* 大提示 */
+.big-toast {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 24rpx 48rpx;
+  background: rgba(60, 40, 20, 0.85);
+  color: #f5e9d0;
+  font-size: 34rpx;
+  border-radius: 16rpx;
+  z-index: 50;
+  letter-spacing: 2rpx;
+}
+
+/* 结算弹层 */
+.mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 20, 10, 0.6);
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.result-panel {
+  width: 80%;
+  background: #f7f0e3;
+  border-radius: 20rpx;
+  padding: 48rpx 32rpx 32rpx;
+  text-align: center;
+  border: 4rpx solid #b99c6b;
+}
+.result-title {
+  font-size: 56rpx;
+  font-weight: bold;
+  letter-spacing: 8rpx;
+}
+.result-win { color: #a03a2f; }
+.result-lose { color: #185fa5; }
+.result-draw { color: #6b5a44; }
+.result-reason {
+  margin: 20rpx 0 32rpx;
+  color: #6b5a44;
+  font-size: 28rpx;
+}

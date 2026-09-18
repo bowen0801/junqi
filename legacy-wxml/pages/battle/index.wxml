@@ -1,0 +1,87 @@
+<view class="battle">
+  <!-- 顶部：阵营信息 -->
+  <view class="top-bar">
+    <view class="side-info {{mySide === 'red' ? 'side-red' : 'side-blue'}}">
+      <text class="side-label">你 · {{mySide === 'red' ? '红方' : (mySide === 'blue' ? '蓝方' : '定色中')}}</text>
+    </view>
+    <view class="turn-info">
+      <text wx:if="{{phase === 'assigning'}}">翻牌定色中</text>
+      <text wx:elif="{{phase === 'finished'}}">对局结束</text>
+      <text wx:else>{{myTurn ? '你的回合' : '对方思考中…'}}</text>
+    </view>
+    <view class="remain">
+      <text class="remain-red">红 {{redAlive}}</text>
+      <text class="remain-blue">蓝 {{blueAlive}}</text>
+    </view>
+  </view>
+
+  <!-- 棋盘 -->
+  <view class="board-wrap">
+    <view class="board" style="width:{{boardW}}px;height:{{boardH}}px;">
+      <!-- 棋盘线（横竖各5条） -->
+      <view class="board-lines">
+        <block wx:for="{{lines}}" wx:key="key">
+          <view class="hline" style="top:{{item.hpos}}px;"></view>
+          <view class="vline" style="left:{{item.vpos}}px;"></view>
+        </block>
+      </view>
+
+      <!-- 牌层：每张牌绝对定位在交点上（卡宽=间距×0.75，牌间留空隙） -->
+      <view class="cards-layer">
+        <block wx:for="{{nodes}}" wx:key="index" wx:for-item="node">
+          <view
+            wx:if="{{node.cardId}}"
+            class="card {{node.revealed ? 'faceup' : 'facedown'}} {{node.side}} {{node.selected ? 'picked' : ''}}"
+            style="left:{{node.cardX}}px;top:{{node.cardY}}px;width:{{cardW}}px;height:{{cardH}}px;"
+          >
+            <view class="card-inner">
+              <view class="card-back"></view>
+              <view class="card-front">
+                <image class="card-img" src="{{node.img}}" mode="aspectFill" />
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+
+      <!-- 交点热区层（最上层、透明，全覆盖接管点击；高亮=整格底色闪烁） -->
+      <view class="nodes-layer">
+        <block wx:for="{{nodes}}" wx:key="index" wx:for-item="node">
+          <view
+            class="node-hot {{node.highlight ? 'hl-' + node.highlight : ''}} {{node.selected ? 'sel' : ''}}"
+            style="left:{{node.x}}px;top:{{node.y}}px;width:{{spacingX}}px;height:{{spacingY}}px;"
+            data-index="{{node.index}}"
+            bindtap="onNodeTap"
+          >
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <!-- 战报条 -->
+  <view class="logbar">
+    <text class="log-text">{{logText}}</text>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="actions">
+    <button class="mini-btn" bindtap="onResign">认输</button>
+    <button class="mini-btn" bindtap="onRules">规则?</button>
+  </view>
+
+  <!-- 全灭提示 -->
+  <view wx:if="{{toast}}" class="big-toast">{{toast}}</view>
+
+  <!-- 结算弹层 -->
+  <view wx:if="{{phase === 'finished' && resultShown}}" class="mask" catchtap="prevent">
+    <view class="result-panel">
+      <view class="result-title {{resultClass}}">{{resultTitle}}</view>
+      <view class="result-reason">{{resultReason}}</view>
+      <view class="result-actions">
+        <button class="btn btn-primary" bindtap="onRestart">再来一局</button>
+        <button class="btn btn-plain" bindtap="onBackHome">返回首页</button>
+      </view>
+    </view>
+  </view>
+</view>

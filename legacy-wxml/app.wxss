@@ -1,0 +1,44 @@
+/**app.wxss 全局样式**/
+page {
+  background: #efe6d5; /* 米黄仿纸桌面 */
+  color: #3a2e25;
+  font-size: 28rpx;
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+}
+
+/* 通用按钮：军木色 */
+.btn {
+  display: block;
+  margin: 24rpx auto;
+  padding: 22rpx 0;
+  text-align: center;
+  background: #7b2d26;
+  color: #f5e9d0;
+  border-radius: 12rpx;
+  font-size: 32rpx;
+  letter-spacing: 4rpx;
+  border: 2rpx solid #5c1f1a;
+}
+.btn-primary {
+  background: #a03a2f;
+}
+.btn-plain {
+  background: transparent;
+  color: #7b2d26;
+  border: 2rpx solid #7b2d26;
+}
+.btn::after {
+  border: none;
+}
+.btn-disabled {
+  opacity: 0.4;
+}
+
+/* 面板 */
+.panel {
+  margin: 24rpx;
+  padding: 24rpx;
+  background: #f7f0e3;
+  border-radius: 16rpx;
+  border: 2rpx solid #d8c9a8;
+}

@@ -1,0 +1,14 @@
+# ---- 工具/临时产物 ----
+.probe.txt
+*.log
+node_modules/
+
+# ---- WorkBuddy 项目数据（本地会话数据，不入库） ----
+.workbuddy/
+
+# ---- 微信开发者工具私有配置（每台机器不同，不入库） ----
+project.private.config.json
+
+# ---- 系统文件 ----
+Thumbs.db
+.DS_Store

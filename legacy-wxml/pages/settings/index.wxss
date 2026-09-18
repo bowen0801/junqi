@@ -1,0 +1,66 @@
+.settings {
+  padding: 24rpx 32rpx;
+}
+
+.group {
+  background: #f7f0e3;
+  border: 2rpx solid #d8c9a8;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.group-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #7b2d26;
+  margin-bottom: 16rpx;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 0;
+  border-bottom: 2rpx solid #e8dcc0;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row-label {
+  font-size: 27rpx;
+  color: #5a4a35;
+  flex: 1;
+  padding-right: 16rpx;
+}
+
+.picker-value {
+  font-size: 27rpx;
+  color: #7b2d26;
+  padding: 8rpx 20rpx;
+  border: 2rpx solid #b99c6b;
+  border-radius: 10rpx;
+  background: #fffdf5;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  color: #6b5a44;
+  font-size: 26rpx;
+  padding: 8rpx 0 16rpx;
+}
+
+.reset-btn {
+  margin: 8rpx auto 0;
+  font-size: 26rpx;
+}
+
+.version {
+  text-align: center;
+  color: #b0a386;
+  font-size: 24rpx;
+  margin-top: 24rpx;
+}
