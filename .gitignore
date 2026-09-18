@@ -1,5 +1,6 @@
 # ---- 工具/临时产物 ----
-.probe.txt
+.probe*.txt
+.cleanup.txt
 *.log
 node_modules/
 
